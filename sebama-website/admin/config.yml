@@ -1,0 +1,19 @@
+﻿backend:
+  name: git-gateway
+  branch: main
+
+# Where media uploads from the CMS are saved in your project folder
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+  - label: "Website Pages"
+  - files:
+      - file: "index.html"
+        label: "Home Page Content"
+        name: "home"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Hero Heading", name: "hero_heading", widget: "string"}
+          - {label: "Hero Description", name: "hero_description", widget: "text"}
