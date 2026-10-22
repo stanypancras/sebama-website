@@ -223,6 +223,25 @@
     </section>
 
     <!-- Core Programs Section -->
+    <!-- Program Photo Gallery Section -->
+<section id="gallery" class="py-12 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-6 text-emerald-900">Program Photo Gallery</h2>
+    
+    <!-- Category Tabs -->
+    <div class="flex flex-wrap justify-center gap-3 mb-8" id="gallery-tabs">
+      <button onclick="filterGallery('all')" class="px-4 py-2 bg-emerald-800 text-white rounded-full text-sm font-semibold hover:bg-emerald-700">All Photos</button>
+      <button onclick="filterGallery('mercy-home')" class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm font-semibold hover:bg-emerald-50">Mercy Home for Children</button>
+      <button onclick="filterGallery('elderly-care')" class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm font-semibold hover:bg-emerald-50">Destitute Elderly Care</button>
+      <button onclick="filterGallery('leprosy-rehab')" class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm font-semibold hover:bg-emerald-50">Leprosy Family Rehabilitation</button>
+    </div>
+
+    <!-- Photos Grid -->
+    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- CMS photos render here -->
+    </div>
+  </div>
+</section>
 <!-- Corporate CSR & Volunteering Section -->
 <section id="csr" class="py-16 bg-slate-50 border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
