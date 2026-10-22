@@ -7,21 +7,19 @@ public_folder: "/images/uploads"
 
 collections:
   - name: "gallery"
-    label: "Gallery"
+    label: "Photo Gallery"
     folder: "sebama-website/content/gallery"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - label: "Program / Category"
+        name: "program"
+        widget: "select"
+        options:
+          - { label: "Mercy Home for Children", value: "mercy-home" }
+          - { label: "Destitute Elderly Care", value: "elderly-care" }
+          - { label: "Leprosy Family Rehabilitation", value: "leprosy-rehab" }
+          - { label: "General & Events", value: "general" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Caption", name: "caption", widget: "string", required: false }
-
-  - name: "programs"
-    label: "Programs & Initiatives"
-    folder: "sebama-website/content/programs"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Program Name", name: "title", widget: "string" }
-      - { label: "Description", name: "body", widget: "markdown" }
-      - { label: "Featured Image", name: "image", widget: "image", required: false }
