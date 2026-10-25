@@ -756,6 +756,49 @@
   }
 
   document.addEventListener('DOMContentLoaded', loadCategorizedGallery);
+                    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+// This function runs when the user clicks "Proceed to Secure Payment" inside your modal
+function handleSecurePayment(event) {
+    event.preventDefault();
+
+    // Grab the values the user entered in your modal
+    var donorName = document.getElementById('donorName') ? document.getElementById('donorName').value : 'Donor';
+    var donorMobile = document.getElementById('donorMobile') ? document.getElementById('donorMobile').value : '';
+    var donorPan = document.getElementById('donorPan') ? document.getElementById('donorPan').value : '';
+    
+    // Get the selected amount (defaulting to ₹500 if not chosen, i.e., 50000 paise)
+    // Note: Multiply the final rupee amount by 100 because Razorpay reads amounts in paise!
+    var donationAmountRupees = 500; // You can link this to your custom amount input field
+    var amountInPaise = donationAmountRupees * 100;
+
+    var options = {
+        "key": "rzp_test_Ts6rILJSRHYwoJ", // Replace with your live key (rzp_live_...) later
+        "amount": amountInPaise, 
+        "currency": "INR",
+        "name": "Sebama Charitable Foundation",
+        "description": "Donation towards Mercy Home & 80G Project",
+        "image": "https://sebama.in/images/logo.png",
+        "handler": function (response){
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id + "\nThank you " + donorName + "! Your 80G receipt will be shared shortly.");
+            // Here you can close your modal or redirect
+        },
+        "prefill": {
+            "name": donorName,
+            "contact": donorMobile
+        },
+        "notes": {
+            "pan_number": donorPan // Passes the PAN card number securely into Razorpay notes for your 80G records
+        },
+        "theme": {
+            "color": "#d97706" // Matches your brand button color
+        }
+    };
+    
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+}
+</script>
 </script>
 </body>
 </html>
