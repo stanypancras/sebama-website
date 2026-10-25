@@ -678,11 +678,41 @@
             document.getElementById('customAmount').value = val;
         }
 
-        function handleDonation(e) {
-            e.preventDefault();
-            alert('Thank you for supporting Sebama Charitable Foundation! This triggers the Razorpay / UPI gateway integration.');
+        function handleSecurePayment(event) {
+    event.preventDefault();
+
+    var donorName = document.getElementById('donorName') ? document.getElementById('donorName').value : 'Donor';
+    var donorMobile = document.getElementById('donorMobile') ? document.getElementById('donorMobile').value : '';
+    var donorPan = document.getElementById('donorPan') ? document.getElementById('donorPan').value : '';
+    
+    var amountInPaise = 50000; // ₹500 default
+
+    var options = {
+        "key": "rzp_test_Ts6rILJSRHYwoJ",
+        "amount": amountInPaise, 
+        "currency": "INR",
+        "name": "Sebama Charitable Foundation",
+        "description": "Donation towards Mercy Home & 80G Project",
+        "image": "https://sebama.in/images/logo.png",
+        "handler": function (response){
+            alert("Payment successful! Payment ID: " + response.razorpay_payment_id + "\nThank you " + donorName + "! Your 80G receipt will be shared shortly.");
             closeDonateModal();
+        },
+        "prefill": {
+            "name": donorName,
+            "contact": donorMobile
+        },
+        "notes": {
+            "pan_number": donorPan
+        },
+        "theme": {
+            "color": "#d97706" 
         }
+    };
+    
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+}
     </script>
                 <script>
   let allGalleryItems = [];
