@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -9,6 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Razorpay Checkout SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -22,7 +24,7 @@
             }
         }
     </script>
-<!-- Open Graph / WhatsApp Preview Tags -->
+    <!-- Open Graph / WhatsApp Preview Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Sebama Charitable Foundation | Empowering Communities in Dharmapuri" />
     <meta property="og:description" content="Registered NGO (12A, 80G, CSR-1, FCRA) facilitating sustainable rural development, community empowerment, and corporate CSR partnerships." />
@@ -35,7 +37,6 @@
     <meta name="twitter:title" content="Sebama Charitable Foundation" />
     <meta name="twitter:description" content="Registered NGO (12A, 80G, CSR-1, FCRA) facilitating sustainable rural development in Dharmapuri." />
     <meta name="twitter:image" content="https://sebama.in/images/logo.png" />
-
 </head>
 <body class="bg-brandBg text-gray-800 font-sans antialiased">
 
@@ -161,22 +162,19 @@
             </div>
         </div>
     </section>
-<!-- About Us Section -->
+
+    <!-- About Us Section -->
     <section id="about" class="py-16 bg-white border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                
-                <!-- Left Column: History & Story -->
                 <div class="space-y-4">
                     <span class="text-brandSecondary font-bold uppercase text-xs tracking-wider">Who We Are</span>
                     <h2 class="text-3xl font-bold text-gray-900 leading-tight">
                         Dedicated to Compassionate Community Care in Dharmapuri
                     </h2>
-                    
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        <strong>Sebama Charitable Foundation</strong>, located in Sogathur, Dharmapuri, Tamil Nadu, was established in 1988 with an initial focus on providing care and rehabilitation for leprosy-affected individuals and vulnerable families across the district. Over nearly four decades of grassroots service, the foundation expanded its humanitarian outreach through <strong>Mercy Home</strong>, creating a holistic residential care ecosystem for those in need.
+                        <strong>Sebama Charitable Foundation</strong>, located in Sogathur, Dharmapuri, Tamil Nadu, was established with an initial focus on providing care and rehabilitation for leprosy-affected individuals and vulnerable families across the district. Over years of grassroots service, the foundation expanded its humanitarian outreach through <strong>Mercy Home</strong>, creating a holistic residential care ecosystem for those in need.
                     </p>
-                    
                     <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100">
                         <div>
                             <h4 class="font-bold text-brandPrimary text-lg">Integrated Care</h4>
@@ -189,7 +187,6 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Mission & Vision Cards -->
                 <div class="bg-brandBg p-8 rounded-2xl border border-gray-200 shadow-sm space-y-6">
                     <div>
                         <div class="flex items-center space-x-3 mb-2">
@@ -202,9 +199,7 @@
                             To build an inclusive, stigma-free society where every child gains access to quality education, every senior citizen lives with comfort and dignity, and every marginalized family in rural Tamil Nadu receives the social security needed to thrive.
                         </p>
                     </div>
-
                     <hr class="border-gray-200">
-
                     <div>
                         <div class="flex items-center space-x-3 mb-2">
                             <div class="w-8 h-8 bg-amber-100 text-amber-800 rounded-full flex items-center justify-center font-bold">
@@ -217,111 +212,31 @@
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Core Programs Section -->
     <!-- Program Photo Gallery Section -->
-<section id="gallery" class="py-12 bg-gray-50">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-6 text-emerald-900">Program Photo Gallery</h2>
-    
-    <!-- Category Tabs -->
-    <div class="flex flex-wrap justify-center gap-3 mb-8" id="gallery-tabs">
-      <button onclick="filterGallery('all')" class="px-4 py-2 bg-emerald-800 text-white rounded-full text-sm font-semibold hover:bg-emerald-700">All Photos</button>
-      <button onclick="filterGallery('mercy-home')" class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm font-semibold hover:bg-emerald-50">Mercy Home for Children</button>
-      <button onclick="filterGallery('elderly-care')" class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm font-semibold hover:bg-emerald-50">Destitute Elderly Care</button>
-      <button onclick="filterGallery('leprosy-rehab')" class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm font-semibold hover:bg-emerald-50">Leprosy Family Rehabilitation</button>
-    </div>
-
-    <!-- Photos Grid -->
-    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <!-- CMS photos render here -->
-    </div>
-  </div>
-</section>
-<!-- Corporate CSR & Volunteering Section -->
-<section id="csr" class="py-16 bg-slate-50 border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" class="py-12 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-6 text-emerald-900">Program Photo Gallery</h2>
         
-        <!-- Header -->
-        <div class="text-center max-w-3xl mx-auto mb-12">
-            <span class="text-brandSecondary font-bold uppercase text-xs tracking-wider">Corporate Partnerships</span>
-            <h2 class="text-3xl font-bold text-gray-900 mt-2">CSR & Corporate Volunteering Opportunities</h2>
-            <p class="text-gray-600 text-sm mt-3 leading-relaxed">
-                Partner with Sebama Charitable Foundation to drive measurable social impact. We offer structured corporate volunteering drives, employee engagement initiatives, and direct CSR project funding in rural Dharmapuri.
-            </p>
+        <!-- Category Tabs -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8" id="gallery-tabs">
+          <button onclick="filterGallery('all')" class="px-4 py-2 bg-emerald-800 text-white rounded-full text-sm font-semibold hover:bg-emerald-700">All Photos</button>
+          <button onclick="filterGallery('mercy-home')" class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm font-semibold hover:bg-emerald-50">Mercy Home for Children</button>
+          <button onclick="filterGallery('elderly-care')" class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm font-semibold hover:bg-emerald-50">Destitute Elderly Care</button>
+          <button onclick="filterGallery('leprosy-rehab')" class="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-full text-sm font-semibold hover:bg-emerald-50">Leprosy Family Rehabilitation</button>
         </div>
 
-        <!-- CSR Pillars Grid -->
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
-            
-            <!-- Card 1: Infrastructure & Solar -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center font-bold text-xl mb-4">
-                    <i class="fa-solid fa-solar-panel"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Sustainable Campus Infrastructure</h3>
-                <p class="text-xs text-gray-600 leading-relaxed mb-4">
-                    Sponsor green energy infrastructure at Mercy Home, including solar power installations, clean drinking water filtration systems, and facility renovations.
-                </p>
-                <span class="inline-block bg-amber-50 text-amber-800 text-[11px] font-semibold px-2.5 py-1 rounded">Project Support / Grants</span>
-            </div>
-
-            <!-- Card 2: Skill Development & Education -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-emerald-100 text-brandPrimary rounded-xl flex items-center justify-center font-bold text-xl mb-4">
-                    <i class="fa-solid fa-laptop-code"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Digital Literacy & Skill Labs</h3>
-                <p class="text-xs text-gray-600 leading-relaxed mb-4">
-                    Fund computer labs, educational kits, and vocational training programs for resident children and youth from leprosy-affected families.
-                </p>
-                <span class="inline-block bg-emerald-50 text-emerald-800 text-[11px] font-semibold px-2.5 py-1 rounded">Employee Engagement</span>
-            </div>
-
-            <!-- Card 3: Healthcare & Medical Camps -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center font-bold text-xl mb-4">
-                    <i class="fa-solid fa-user-doctor"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Community Health & Relief Camps</h3>
-                <p class="text-xs text-gray-600 leading-relaxed mb-4">
-                    Organize corporate-sponsored health screening drives, mobile medical units, and monthly nutritional kit distribution for leprosy patients.
-                </p>
-                <span class="inline-block bg-blue-50 text-blue-800 text-[11px] font-semibold px-2.5 py-1 rounded">On-Ground Volunteering</span>
-            </div>
-
+        <!-- Photos Grid -->
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- CMS photos render here dynamically -->
         </div>
+      </div>
+    </section>
 
-        <!-- Corporate Volunteering Menu Callout -->
-        <div class="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="space-y-4">
-                    <h3 class="text-xl font-bold text-gray-900">Employee Engagement & On-Site Visits</h3>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        We host corporate teams for 1-day or weekend volunteering activities at our Sogathur campus in Dharmapuri. Activities include intergenerational interaction with seniors, mentoring sessions with children, tree planting drives, and campus improvement projects.
-                    </p>
-                    <ul class="text-xs text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-brandPrimary mr-2"></i> Tailored 1-day corporate volunteer itineraries</li>
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-brandPrimary mr-2"></i> Structured impact measurement & reporting</li>
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-brandPrimary mr-2"></i> Full compliance with CSR-1 and 80G tax benefits</li>
-                    </ul>
-                </div>
-                <div class="bg-brandBg p-6 rounded-xl border border-gray-100 text-center space-y-4">
-                    <h4 class="font-bold text-gray-900 text-sm">Explore a Corporate Partnership</h4>
-                    <p class="text-xs text-gray-500">Reach out to our program coordinator to request our full CSR proposal deck.</p>
-                    <a href="mailto:info@sebama.in?subject=CSR%20Partnership%20Inquiry" class="inline-block w-full bg-brandPrimary hover:bg-emerald-800 text-white font-bold py-3 px-6 rounded-lg text-xs transition shadow-md">
-                        <i class="fa-solid fa-envelope mr-2"></i> Contact Corporate Relations
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
+    <!-- Core Programs Section -->
     <section id="programs" class="py-16 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -391,7 +306,7 @@
         </div>
     </section>
 
-    <!-- Corporate CSR & Volunteering Section (Team Everest Style) -->
+    <!-- Corporate CSR & Volunteering Section -->
     <section id="corporate" class="py-16 bg-emerald-950 text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -401,7 +316,6 @@
                     <p class="text-gray-300 mt-4 text-sm md:text-base leading-relaxed">
                         We act as your end-to-end employee engagement partner. Whether your IT teams are based in Bangalore or Chennai, we offer turn-key, low-friction volunteering activities designed around employee skills.
                     </p>
-
                     <div class="mt-8 space-y-4">
                         <div class="flex items-start space-x-3">
                             <div class="bg-amber-500/20 text-amber-400 p-2 rounded-lg mt-1"><i class="fa-solid fa-laptop-code"></i></div>
@@ -410,7 +324,6 @@
                                 <p class="text-xs text-gray-400">English conversation, basic coding, digital literacy, and career mentoring for rural children.</p>
                             </div>
                         </div>
-
                         <div class="flex items-start space-x-3">
                             <div class="bg-amber-500/20 text-amber-400 p-2 rounded-lg mt-1"><i class="fa-solid fa-boxes-packing"></i></div>
                             <div>
@@ -418,7 +331,6 @@
                                 <p class="text-xs text-gray-400">Employees assemble educational or leprosy medical/nutrition kits directly at your corporate office.</p>
                             </div>
                         </div>
-
                         <div class="flex items-start space-x-3">
                             <div class="bg-amber-500/20 text-amber-400 p-2 rounded-lg mt-1"><i class="fa-solid fa-bus"></i></div>
                             <div>
@@ -427,70 +339,58 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="mt-8">
-                        <a href="mailto:sebamafoundation@gmail.com?subject=Request%20for%20Corporate%20CSR%20Deck&body=Hello%20Sebama%20Team,%20we%20would%20like%20to%20request%20your%20Corporate%20CSR%20Deck." 
-   class="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg shadow-md transition">
-   Request Corporate CSR Deck
-</a>
+                        <a href="mailto:sebamafoundation@gmail.com?subject=Request%20for%20Corporate%20CSR%20Deck&body=Hello%20Sebama%20Team,%20we%20would%20like%20to%20request%20your%20Corporate%20CSR%20Deck." class="inline-block px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg shadow-md transition text-sm">
+                            Request Corporate CSR Deck
                         </a>
                     </div>
                 </div>
 
                 <!-- CSR Engagement Card -->
-<div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-100 space-y-6">
-    <div>
-        <h3 class="text-xl font-bold text-gray-900 mb-1">Why Tech & Corporate Teams Choose Us</h3>
-        <p class="text-xs text-gray-500">Zero administrative burden for your HR / CSR committee.</p>
-    </div>
-
-    <!-- Fixed Responsive List -->
-    <ul class="space-y-4">
-        <!-- Item 1 -->
-        <li class="flex items-start space-x-3">
-            <i class="fa-solid fa-circle-check text-emerald-600 text-base mt-0.5 shrink-0"></i>
-            <div class="text-xs sm:text-sm">
-                <span class="font-bold text-gray-900 block sm:inline">Compliance Ready:</span>
-                <span class="text-gray-600 sm:ml-1">12A, 80G, CSR-1 and Form 10BD enabled.</span>
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-100 space-y-6 text-gray-800">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1">Why Tech & Corporate Teams Choose Us</h3>
+                        <p class="text-xs text-gray-500">Zero administrative burden for your HR / CSR committee.</p>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-base mt-0.5 shrink-0"></i>
+                            <div class="text-xs sm:text-sm">
+                                <span class="font-bold text-gray-900 block sm:inline">Compliance Ready:</span>
+                                <span class="text-gray-600 sm:ml-1">12A, 80G, CSR-1 and Form 10BD enabled.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-base mt-0.5 shrink-0"></i>
+                            <div class="text-xs sm:text-sm">
+                                <span class="font-bold text-gray-900 block sm:inline">Proximity:</span>
+                                <span class="text-gray-600 sm:ml-1">Easy road access from Bangalore & Chennai IT hubs.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-base mt-0.5 shrink-0"></i>
+                            <div class="text-xs sm:text-sm">
+                                <span class="font-bold text-gray-900 block sm:inline">Detailed Impact Analytics:</span>
+                                <span class="text-gray-600 sm:ml-1">Volunteer hours, NPS, & beneficiary metrics provided post-event.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-base mt-0.5 shrink-0"></i>
+                            <div class="text-xs sm:text-sm">
+                                <span class="font-bold text-gray-900 block sm:inline">Turn-Key Logistics:</span>
+                                <span class="text-gray-600 sm:ml-1">We manage onboarding, materials, venue setup, and safety protocols.</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center space-y-1">
+                        <p class="text-xs font-bold text-gray-900">Planning a Joy of Giving / Festive Campaign?</p>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">
+                            We host seasonal campaigns including Christmas Angel Trees and Diwali Giving Drives on corporate campuses.
+                        </p>
+                    </div>
+                </div>
             </div>
-        </li>
-
-        <!-- Item 2 -->
-        <li class="flex items-start space-x-3">
-            <i class="fa-solid fa-circle-check text-emerald-600 text-base mt-0.5 shrink-0"></i>
-            <div class="text-xs sm:text-sm">
-                <span class="font-bold text-gray-900 block sm:inline">Proximity:</span>
-                <span class="text-gray-600 sm:ml-1">Easy road access from Bangalore & Chennai IT hubs.</span>
-            </div>
-        </li>
-
-        <!-- Item 3 -->
-        <li class="flex items-start space-x-3">
-            <i class="fa-solid fa-circle-check text-emerald-600 text-base mt-0.5 shrink-0"></i>
-            <div class="text-xs sm:text-sm">
-                <span class="font-bold text-gray-900 block sm:inline">Detailed Impact Analytics:</span>
-                <span class="text-gray-600 sm:ml-1">Volunteer hours, NPS, & beneficiary metrics provided post-event.</span>
-            </div>
-        </li>
-
-        <!-- Item 4 -->
-        <li class="flex items-start space-x-3">
-            <i class="fa-solid fa-circle-check text-emerald-600 text-base mt-0.5 shrink-0"></i>
-            <div class="text-xs sm:text-sm">
-                <span class="font-bold text-gray-900 block sm:inline">Turn-Key Logistics:</span>
-                <span class="text-gray-600 sm:ml-1">We manage onboarding, materials, venue setup, and safety protocols.</span>
-            </div>
-        </li>
-    </ul>
-
-    <!-- Bottom Festive Campaign Box -->
-    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center space-y-1">
-        <p class="text-xs font-bold text-gray-900">Planning a Joy of Giving / Festive Campaign?</p>
-        <p class="text-[11px] text-gray-500 leading-relaxed">
-            We host seasonal campaigns including Christmas Angel Trees and Diwali Giving Drives on corporate campuses.
-        </p>
-    </div>
-</div>
+        </div>
     </section>
 
     <!-- Christmas Angel Tree Campaign Block -->
@@ -501,27 +401,23 @@
             <p class="text-red-100 max-w-2xl mx-auto text-sm mt-2">
                 Transform traditional Secret Santa into a purpose-driven corporate activity. Employees pick wish-tags from an office Christmas tree and fulfill specific needs for children and elderly residents in Dharmapuri.
             </p>
-
             <div class="grid md:grid-cols-3 gap-6 mt-10 text-left">
                 <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
                     <div class="text-amber-300 text-2xl font-bold mb-2">01. Wish Cards</div>
                     <h4 class="font-bold text-lg mb-1">Children's Gift Wishes</h4>
                     <p class="text-xs text-red-100">Employees sponsor winter clothing, storybooks, and school bags for children at Mercy Home.</p>
                 </div>
-
                 <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
                     <div class="text-amber-300 text-2xl font-bold mb-2">02. Senior Care</div>
                     <h4 class="font-bold text-lg mb-1">Elderly Comfort Kits</h4>
                     <p class="text-xs text-red-100">Sponsor warm blankets, medical footwear, and festive meals for elderly home residents.</p>
                 </div>
-
                 <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
                     <div class="text-amber-300 text-2xl font-bold mb-2">03. Relief Boxes</div>
                     <h4 class="font-bold text-lg mb-1">Leprosy Family Ration</h4>
                     <p class="text-xs text-red-100">Teams assemble monthly grocery kits and health supplies for leprosy-affected families.</p>
                 </div>
             </div>
-
             <div class="mt-8">
                 <button onclick="openDonateModal('Christmas Angel Tree Wish Sponsorship')" class="bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3.5 px-8 rounded-lg shadow-lg transition">
                     Sponsor an Angel Tree Wish Online
@@ -538,26 +434,22 @@
                 <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Legal Compliance & Transparency</h2>
                 <p class="text-gray-600 text-sm mt-2">All Indian donations to Sebama Charitable Foundation qualify for 50% tax deduction under Section 80G.</p>
             </div>
-
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
                     <i class="fa-solid fa-file-contract text-2xl text-brandPrimary mb-2"></i>
                     <h4 class="font-bold text-gray-900 text-sm">12A Registration</h4>
                     <p class="text-xs text-gray-500 mt-1">Income Tax Department Tax Exempt Trust Status</p>
                 </div>
-
                 <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
                     <i class="fa-solid fa-percent text-2xl text-brandPrimary mb-2"></i>
                     <h4 class="font-bold text-gray-900 text-sm">80G Certificate</h4>
                     <p class="text-xs text-gray-500 mt-1">50% Tax Deduction for Indian Individual & Corporate Donors</p>
                 </div>
-
                 <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
                     <i class="fa-solid fa-building-columns text-2xl text-brandPrimary mb-2"></i>
                     <h4 class="font-bold text-gray-900 text-sm">CSR-1 Certified</h4>
                     <p class="text-xs text-gray-500 mt-1">Approved by Ministry of Corporate Affairs for Corporate CSR Grants</p>
                 </div>
-
                 <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
                     <i class="fa-solid fa-shield-halved text-2xl text-brandPrimary mb-2"></i>
                     <h4 class="font-bold text-gray-900 text-sm">Form 10BD Compliant</h4>
@@ -577,7 +469,6 @@
                 </p>
                 <p class="text-xs text-gray-400"><i class="fa-solid fa-location-dot text-brandSecondary mr-2"></i> Sogathur Post, Dharmapuri District, Tamil Nadu - 636701</p>
             </div>
-
             <div>
                 <h4 class="text-white font-bold text-sm mb-3">Quick Links</h4>
                 <ul class="space-y-2 text-xs">
@@ -587,23 +478,21 @@
                     <li><a href="#compliance" class="hover:text-amber-400">80G & 12A Documents</a></li>
                 </ul>
             </div>
-
             <div>
                 <h4 class="text-white font-bold text-sm mb-3">Contact Us</h4>
                 <p class="text-xs text-gray-400 mb-2"><i class="fa-solid fa-envelope text-brandSecondary mr-2"></i> contact@sebama.org</p>
                 <p class="text-xs text-gray-400 mb-4"><i class="fa-solid fa-phone text-brandSecondary mr-2"></i> +91 9916665739</p>
-                <button onclick="openDonateModal()" class="bg-brandSecondary text-white text-xs font-bold py-2.5 px-5 rounded-lg">
+                <button onclick="openDonateModal()" class="bg-brandSecondary text-white text-xs font-bold py-2.5 px-5 rounded-lg shadow">
                     Make an 80G Tax Deductible Donation
                 </button>
             </div>
         </div>
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-gray-800 text-xs text-gray-500 text-center">
             &copy; 2026 Sebama Charitable Foundation. All Rights Reserved. | 80G Tax Benefits applicable for Indian citizens.
         </div>
     </footer>
 
-    <!-- Online Donation Modal Simulation -->
+    <!-- Secure Online Donation Modal -->
     <div id="donateModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
             <button onclick="closeDonateModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl font-bold">&times;</button>
@@ -631,18 +520,18 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">Full Name</label>
-                    <input type="text" required placeholder="As per PAN card" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Full Name (As per PAN card)</label>
+                    <input type="text" id="donorName" required placeholder="Enter full name" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
                 </div>
 
                 <div class="grid grid-cols-2 gap-2">
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">Mobile Number</label>
-                        <input type="tel" required placeholder="10-digit mobile" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                        <input type="tel" id="donorMobile" required placeholder="10-digit mobile" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">PAN Number (For 80G)</label>
-                        <input type="text" required placeholder="ABCDE1234F" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm uppercase">
+                        <input type="text" id="donorPan" required placeholder="ABCDE1234F" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm uppercase">
                     </div>
                 </div>
 
@@ -654,7 +543,7 @@
         </div>
     </div>
 
-    <!-- JavaScript Interactions -->
+    <!-- JavaScript Interactions & Handlers -->
     <script>
         // Mobile Navigation Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -678,195 +567,115 @@
             document.getElementById('customAmount').value = val;
         }
 
+        // Razorpay Payment Handler
         function handleSecurePayment(event) {
-    event.preventDefault();
+            event.preventDefault();
 
-    var donorName = document.getElementById('donorName') ? document.getElementById('donorName').value : 'Donor';
-    var donorMobile = document.getElementById('donorMobile') ? document.getElementById('donorMobile').value : '';
-    var donorPan = document.getElementById('donorPan') ? document.getElementById('donorPan').value : '';
-    
-    var amountInPaise = 50000; // ₹500 default
+            var donorName = document.getElementById('donorName').value || 'Donor';
+            var donorMobile = document.getElementById('donorMobile').value || '';
+            var donorPan = document.getElementById('donorPan').value || '';
+            var donationAmountRupees = parseFloat(document.getElementById('customAmount').value) || 500;
+            var amountInPaise = Math.round(donationAmountRupees * 100);
 
-    var options = {
-        "key": "rzp_test_Ts6rILJSRHYwoJ",
-        "amount": amountInPaise, 
-        "currency": "INR",
-        "name": "Sebama Charitable Foundation",
-        "description": "Donation towards Mercy Home & 80G Project",
-        "image": "https://sebama.in/images/logo.png",
-        "handler": function (response){
-            alert("Payment successful! Payment ID: " + response.razorpay_payment_id + "\nThank you " + donorName + "! Your 80G receipt will be shared shortly.");
-            closeDonateModal();
-        },
-        "prefill": {
-            "name": donorName,
-            "contact": donorMobile
-        },
-        "notes": {
-            "pan_number": donorPan
-        },
-        "theme": {
-            "color": "#d97706" 
+            var options = {
+                "key": "rzp_test_TsTty40LaVYzmD", // Verified Test Key ID
+                "amount": amountInPaise, 
+                "currency": "INR",
+                "name": "Sebama Charitable Foundation",
+                "description": "Donation towards Mercy Home & 80G Project",
+                "image": "https://sebama.in/images/logo.png",
+                "handler": function (response){
+                    alert("Payment successful! Payment ID: " + response.razorpay_payment_id + "\nThank you " + donorName + "! Your 80G receipt will be shared shortly.");
+                    closeDonateModal();
+                },
+                "prefill": {
+                    "name": donorName,
+                    "contact": donorMobile
+                },
+                "notes": {
+                    "pan_number": donorPan
+                },
+                "theme": {
+                    "color": "#d97706" 
+                }
+            };
+            
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
         }
-    };
-    
-    var rzp1 = new Razorpay(options);
-    rzp1.open();
-}
+
+        // Gallery Dynamic Loader (Decap CMS / GitHub Integration)
+        let allGalleryItems = [];
+
+        async function loadCategorizedGallery() {
+            const grid = document.getElementById('gallery-grid');
+            if (!grid) return;
+
+            try {
+                const response = await fetch('https://api.github.com/repos/stanypancras/sebama-website/contents/sebama-website/content/gallery');
+                if (!response.ok) return;
+
+                const files = await response.json();
+                allGalleryItems = [];
+
+                for (const file of files) {
+                    if (file.name.endsWith('.md')) {
+                        const res = await fetch(file.download_url);
+                        const text = await res.text();
+
+                        const titleMatch = text.match(/title:\s*"(.*?)"|title:\s*(.*)/);
+                        const programMatch = text.match(/program:\s*"(.*?)"|program:\s*(.*)/);
+                        const imageMatch = text.match(/image:\s*"(.*?)"|image:\s*(.*)/);
+                        const captionMatch = text.match(/caption:\s*"(.*?)"|caption:\s*(.*)/);
+
+                        const title = titleMatch ? (titleMatch[1] || titleMatch[2]) : '';
+                        const program = programMatch ? (programMatch[1] || programMatch[2]) : 'general';
+                        const image = imageMatch ? (imageMatch[1] || imageMatch[2]) : '';
+                        const caption = captionMatch ? (captionMatch[1] || captionMatch[2]) : '';
+
+                        if (image) {
+                            allGalleryItems.push({ title, program, image, caption });
+                        }
+                    }
+                }
+                renderGallery('all');
+            } catch (err) {
+                console.log('Gallery load info:', err);
+            }
+        }
+
+        function renderGallery(category) {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = '';
+
+            const filtered = category === 'all' 
+                ? allGalleryItems 
+                : allGalleryItems.filter(item => item.program.trim().toLowerCase() === category.toLowerCase());
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-8">No photos uploaded for this program yet.</p>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-md overflow-hidden border border-gray-100';
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-800">${item.title}</h3>
+                        ${item.caption ? `<p class="text-sm text-gray-600 mt-1">${item.caption}</p>` : ''}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterGallery(category) {
+            renderGallery(category);
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCategorizedGallery);
     </script>
-                <script>
-  let allGalleryItems = [];
-
-  async function loadCategorizedGallery() {
-    const grid = document.getElementById('gallery-grid');
-    if (!grid) return;
-
-    try {
-      const response = await fetch('https://api.github.com/repos/stanypancras/sebama-website/contents/sebama-website/content/gallery');
-      if (!response.ok) return;
-
-      const files = await response.json();
-      allGalleryItems = [];
-
-      for (const file of files) {
-        if (file.name.endsWith('.md')) {
-          const res = await fetch(file.download_url);
-          const text = await res.text();
-
-          const titleMatch = text.match(/title:\s*"(.*?)"|title:\s*(.*)/);
-          const programMatch = text.match(/program:\s*"(.*?)"|program:\s*(.*)/);
-          const imageMatch = text.match(/image:\s*"(.*?)"|image:\s*(.*)/);
-          const captionMatch = text.match(/caption:\s*"(.*?)"|caption:\s*(.*)/);
-
-          const title = titleMatch ? (titleMatch[1] || titleMatch[2]) : '';
-          const program = programMatch ? (programMatch[1] || programMatch[2]) : 'general';
-          const image = imageMatch ? (imageMatch[1] || imageMatch[2]) : '';
-          const caption = captionMatch ? (captionMatch[1] || captionMatch[2]) : '';
-
-          if (image) {
-            allGalleryItems.push({ title, program, image, caption });
-          }
-        }
-      }
-      renderGallery('all');
-    } catch (err) {
-      console.log('Gallery error:', err);
-    }
-  }
-
-  function renderGallery(category) {
-    const grid = document.getElementById('gallery-grid');
-    grid.innerHTML = '';
-
-    const filtered = category === 'all' 
-      ? allGalleryItems 
-      : allGalleryItems.filter(item => item.program === category);
-
-    if (filtered.length === 0) {
-      grid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-8">No photos uploaded for this program yet.</p>`;
-      return;
-    }
-
-    filtered.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'bg-white rounded-lg shadow-md overflow-hidden border border-gray-100';
-      card.innerHTML = `
-        <img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover">
-        <div class="p-4">
-          <h3 class="font-bold text-lg text-gray-800">${item.title}</h3>
-          ${item.caption ? `<p class="text-sm text-gray-600 mt-1">${item.caption}</p>` : ''}
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  function filterGallery(category) {
-    renderGallery(category);
-  }
-
-  document.addEventListener('DOMContentLoaded', loadCategorizedGallery);
-                    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-                <!-- Donation Modal Container -->
-<div id="donationModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 relative">
-        <!-- Close Button -->
-        <button onclick="closeDonateModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl font-bold">&times;</button>
-        
-        <div class="text-center mb-4">
-            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">SECURE ONLINE DONATION</span>
-            <h3 class="text-2xl font-bold text-gray-800 mt-2">Support Sebama Foundation</h3>
-            <p class="text-xs text-gray-500">Get instant 80G Tax Exemption Certificate</p>
-        </div>
-
-        <form id="donationForm">
-            <!-- Full Name -->
-            <div class="mb-3">
-                <label class="block text-xs font-medium text-gray-700 mb-1">Full Name (As per PAN card)</label>
-                <input type="text" id="donorName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500" placeholder="Enter full name">
-            </div>
-
-            <!-- Mobile Number -->
-            <div class="mb-3">
-                <label class="block text-xs font-medium text-gray-700 mb-1">Mobile Number</label>
-                <input type="tel" id="donorMobile" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500" placeholder="10-digit mobile number">
-            </div>
-
-            <!-- PAN Number for 80G -->
-            <div class="mb-4">
-                <label class="block text-xs font-medium text-gray-700 mb-1">PAN Number (For 80G Tax Exemption)</label>
-                <input type="text" id="donorPan" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm uppercase focus:ring-2 focus:ring-amber-500" placeholder="ABCDE1234F">
-            </div>
-
-            <!-- Secure Payment Button -->
-            <button type="button" onclick="handleSecurePayment(event)" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md">
-                Proceed to Secure Payment (Razorpay / UPI)
-            </button>
-        </form>
-    </div>
-</div>
-<script>
-// This function runs when the user clicks "Proceed to Secure Payment" inside your modal
-function handleSecurePayment(event) {
-    event.preventDefault();
-
-    // Grab the values the user entered in your modal
-    var donorName = document.getElementById('donorName') ? document.getElementById('donorName').value : 'Donor';
-    var donorMobile = document.getElementById('donorMobile') ? document.getElementById('donorMobile').value : '';
-    var donorPan = document.getElementById('donorPan') ? document.getElementById('donorPan').value : '';
-    
-    // Get the selected amount (defaulting to ₹500 if not chosen, i.e., 50000 paise)
-    // Note: Multiply the final rupee amount by 100 because Razorpay reads amounts in paise!
-    var donationAmountRupees = 500; // You can link this to your custom amount input field
-    var amountInPaise = donationAmountRupees * 100;
-
-    var options = {
-        "key": "rzp_test_Ts6rILJSRHYwoJ", // Replace with your live key (rzp_live_...) later
-        "amount": amountInPaise, 
-        "currency": "INR",
-        "name": "Sebama Charitable Foundation",
-        "description": "Donation towards Mercy Home & 80G Project",
-        "image": "https://sebama.in/images/logo.png",
-        "handler": function (response){
-            alert("Payment successful! Payment ID: " + response.razorpay_payment_id + "\nThank you " + donorName + "! Your 80G receipt will be shared shortly.");
-            // Here you can close your modal or redirect
-        },
-        "prefill": {
-            "name": donorName,
-            "contact": donorMobile
-        },
-        "notes": {
-            "pan_number": donorPan // Passes the PAN card number securely into Razorpay notes for your 80G records
-        },
-        "theme": {
-            "color": "#d97706" // Matches your brand button color
-        }
-    };
-    
-    var rzp1 = new Razorpay(options);
-    rzp1.open();
-}
-</script>
-</script>
 </body>
 </html>
