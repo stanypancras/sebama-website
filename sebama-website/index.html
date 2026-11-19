@@ -549,26 +549,34 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
         // Donation Modal Handling
         function openDonateModal(cause = 'General Support & Care Homes') {
-            document.getElementById('causeInput').value = cause;
-            document.getElementById('donateModal').classList.remove('hidden');
+            const causeInput = document.getElementById('causeInput');
+            const donateModal = document.getElementById('donateModal');
+            if (causeInput) causeInput.value = cause;
+            if (donateModal) donateModal.classList.remove('hidden');
         }
 
         function closeDonateModal() {
-            document.getElementById('donateModal').classList.add('hidden');
+            const donateModal = document.getElementById('donateModal');
+            if (donateModal) donateModal.classList.add('hidden');
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
-    var donateBtn = document.getElementById('donateBtn');
-    if (donateBtn) {
-        donateBtn.onclick = function(e) {
+        function setAmount(val) {
+            const customAmount = document.getElementById('customAmount');
+            if (customAmount) customAmount.value = val;
+        }
+
+        // Secure Razorpay Handler tied directly to modal form submission
+        function handleSecurePayment(e) {
             e.preventDefault();
-            
+
             var donorName = document.getElementById('donorName') ? document.getElementById('donorName').value : 'Donor';
             var donorMobile = document.getElementById('donorMobile') ? document.getElementById('donorMobile').value : '';
             var donorPan = document.getElementById('donorPan') ? document.getElementById('donorPan').value : '';
@@ -584,6 +592,7 @@
                 "image": "https://sebama.in/images/logo.png",
                 "handler": function (response){
                     alert("Payment successful! Payment ID: " + response.razorpay_payment_id + "\nThank you " + donorName + "! Your 80G receipt will be shared.");
+                    closeDonateModal();
                 },
                 "prefill": {
                     "name": donorName,
@@ -599,9 +608,7 @@
 
             var rzp1 = new Razorpay(options);
             rzp1.open();
-        };
-    }
-});
+        }
 
         // Gallery Dynamic Loader (Decap CMS / GitHub Integration)
         let allGalleryItems = [];
@@ -645,6 +652,7 @@
 
         function renderGallery(category) {
             const grid = document.getElementById('gallery-grid');
+            if (!grid) return;
             grid.innerHTML = '';
 
             const filtered = category === 'all' 
