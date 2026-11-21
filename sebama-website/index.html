@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -524,6 +524,11 @@
                     <input type="text" id="donorName" required placeholder="Enter full name" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
                 </div>
 
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Email Address (For 80G Receipt)</label>
+                    <input type="email" id="donorEmail" required placeholder="name@example.com" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                </div>
+
                 <div class="grid grid-cols-2 gap-2">
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">Mobile Number</label>
@@ -531,8 +536,13 @@
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">PAN Number (For 80G)</label>
-                        <input type="text" id="donorPan" required placeholder="ABCDE1234F" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm uppercase">
+                        <input type="text" id="donorPan" required placeholder="ABCDE1234F" maxlength="10" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm uppercase">
                     </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Address (Required for Form 10BD)</label>
+                    <input type="text" id="donorAddress" required placeholder="Street, City, State, PIN" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
                 </div>
 
                 <button type="submit" class="w-full bg-brandSecondary hover:bg-amber-600 text-white font-bold py-3 rounded-lg shadow-lg transition text-sm">
@@ -577,9 +587,12 @@
         function handleSecurePayment(e) {
             e.preventDefault();
 
-            var donorName = document.getElementById('donorName') ? document.getElementById('donorName').value : 'Donor';
-            var donorMobile = document.getElementById('donorMobile') ? document.getElementById('donorMobile').value : '';
-            var donorPan = document.getElementById('donorPan') ? document.getElementById('donorPan').value : '';
+            var donorName = document.getElementById('donorName') ? document.getElementById('donorName').value.trim() : 'Donor';
+            var donorEmail = document.getElementById('donorEmail') ? document.getElementById('donorEmail').value.trim() : '';
+            var donorMobile = document.getElementById('donorMobile') ? document.getElementById('donorMobile').value.trim() : '';
+            var donorPan = document.getElementById('donorPan') ? document.getElementById('donorPan').value.trim().toUpperCase() : '';
+            var donorAddress = document.getElementById('donorAddress') ? document.getElementById('donorAddress').value.trim() : '';
+            var donationCause = document.getElementById('causeInput') ? document.getElementById('causeInput').value.trim() : 'General Support & Care Homes';
             var donationAmountRupees = document.getElementById('customAmount') ? parseFloat(document.getElementById('customAmount').value) : 500;
             var amountInPaise = Math.round(donationAmountRupees * 100);
 
@@ -588,18 +601,24 @@
                 "amount": amountInPaise,
                 "currency": "INR",
                 "name": "Sebama Charitable Foundation",
-                "description": "Donation towards Mercy Home & 80G Project",
+                "description": donationCause,
                 "image": "https://sebama.in/images/logo.png",
                 "handler": function (response){
-                    alert("Payment successful! Payment ID: " + response.razorpay_payment_id + "\nThank you " + donorName + "! Your 80G receipt will be shared.");
+                    alert("Payment successful! Payment ID: " + response.razorpay_payment_id + "\nThank you " + donorName + "! Your 80G receipt has been emailed to " + donorEmail + ".");
                     closeDonateModal();
                 },
                 "prefill": {
                     "name": donorName,
+                    "email": donorEmail,
                     "contact": donorMobile
                 },
                 "notes": {
-                    "pan_number": donorPan
+                    "name": donorName,
+                    "email": donorEmail,
+                    "phone": donorMobile,
+                    "pan_number": donorPan,
+                    "address": donorAddress,
+                    "purpose": donationCause
                 },
                 "theme": {
                     "color": "#1b4d3e"

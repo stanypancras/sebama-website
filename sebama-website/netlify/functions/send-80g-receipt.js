@@ -11,12 +11,18 @@ exports.handler = async function(event, context) {
 
         if (payload.event === 'payment.captured') {
             const payment = payload.payload.payment.entity;
-            const donorName = payment.notes.name || payment.name || 'Donor';
-            const donorEmail = payment.email;
-            const donorPhone = payment.contact || payment.notes.phone || 'N/A';
-            const donorPan = (payment.notes.pan_number || 'N/A').toUpperCase();
-            const donorAddress = payment.notes.address || 'Not Provided';
-            const purpose = payment.notes.purpose || 'General Charitable Purpose (Mercy Home & Community Care)';
+            const notes = payment.notes || {};
+            const donorName = notes.name || payment.name || 'Donor';
+            const donorEmail = payment.email || notes.email;
+            const donorPhone = payment.contact || notes.phone || 'N/A';
+            const donorPan = (notes.pan_number || 'N/A').toUpperCase();
+            const donorAddress = notes.address || 'Not Provided';
+            const purpose = notes.purpose || 'General Charitable Purpose (Mercy Home & Community Care)';
+
+            if (!donorEmail) {
+                console.warn(`Payment ${payment.id} captured without a donor email address. Skipping email dispatch.`);
+                return { statusCode: 200, body: JSON.stringify({ received: true, warning: 'No donor email provided' }) };
+            }
             
             const amount = payment.amount / 100;
             const paymentId = payment.id;
